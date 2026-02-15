@@ -1,3 +1,18 @@
 
-# auto generated wildcard
+# Environment
+.env
 mycapm/db/.env
+
+# Node
+node_modules/
+
+# CAP build
+gen/
+dist/
+
+# MTA
+mta_archives/
+*.mtar
+
+# Logs
+*.log
