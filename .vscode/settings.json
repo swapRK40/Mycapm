@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "india.db",
+            "database": "${workspaceFolder:projects}/mycapm/india.db"
+        }
+    ],
+    "SAP HANA SQLScript LSP.URL": "https://cf-us10-001.cf.hana-tooling.ingress.orchestration.prod-us10.hanacloud.ondemand.com/hrtt-service",
+    "SAP HANA SQLScript LSP.XsAdvancedHrttServiceUrl": "",
+    "SAP HANA Database Artifacts.lastSelectedTargetPath": "/home/user/projects/mycapm/db/src"
+}

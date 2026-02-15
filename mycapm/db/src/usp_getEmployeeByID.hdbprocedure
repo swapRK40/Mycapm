@@ -1,0 +1,30 @@
+PROCEDURE "india.db::usp_getEmployeeByID"
+(
+    IN IN_EMP_ID NVARCHAR(36),
+    OUT OUT_EMP TABLE (  
+        FIRSTNAME NVARCHAR(50),
+        LASTNAME  NVARCHAR(50),
+        DEPARTMENT NVARCHAR(50),
+        SALARY INTEGER,
+        HIREDATE DATE,
+        PHONENUMBER NVARCHAR(50),
+        EMAIL NVARCHAR(100)
+        )
+)
+
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+READS SQL DATA
+AS
+BEGIN
+     OUT_EMP = 
+     SELECT "FIRSTNAME", 
+            "LASTNAME",  
+            "DEPARTMENT" ,
+            "SALARY" ,
+            "HIREDATE" ,
+            "PHONENUMBER" ,
+            "EMAIL" 
+            FROM "INDIA_DB_EMPLOYEES"
+            WHERE "ID" = :IN_EMP_ID;
+END;

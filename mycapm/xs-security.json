@@ -1,0 +1,74 @@
+{
+  "xsappname": "mycapm",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Administrator"
+    },
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "Viewer Role"
+    }
+  ],
+
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "Admin",
+      "description": "Admin profile",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "Viewer",
+      "description": "Viewer profile",
+      "attribute-references": [
+        {
+          "name": "Gender"
+        }
+      ],
+      "scope-references": [
+        "$XSAPPNAME.Viewer"
+      ]
+    }
+  ],
+
+  "role-collections": [
+    {
+      "name": "app-administrator",
+      "description": "Administration access",
+      "role-template-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "app-viewer",
+      "description": "Viewer access",
+      "role-template-references": [
+        "$XSAPPNAME.Viewer"
+      ]
+    }
+  ],
+
+  "attributes": [
+    {
+      "name": "Gender",
+      "description": "Gender",
+      "valueType": "string"
+    }
+  ]
+}
