@@ -87,7 +87,7 @@ service increment {
 
 }
 
-//These is for calculation View
+//These is for Graphical calculation  View
 service CVsrv {
   entity BP_AD as projection on my.BP_AD;
   entity PO_PI as projection on my.PO_PI; 
