@@ -101,7 +101,7 @@ context transaction  {
 
     }
 }
-//These calculation views notations we are telling capm to do not manage ddl operation for these beacuse these are already present 
+//These calculation views notations 
 @cds.persistence.exists 
 @cds.persistence.calcview 
 Entity BP_AD {
@@ -117,7 +117,7 @@ key     NODE_KEY: String(100)  @title: 'NODE_KEY: NODE_KEY' ;
 }
 
 
-
+//CV
 @cds.persistence.exists 
 @cds.persistence.calcview 
 Entity PO_PI {
