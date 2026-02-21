@@ -117,7 +117,6 @@ key     NODE_KEY: String(100)  @title: 'NODE_KEY: NODE_KEY' ;
 }
 
 
-
 @cds.persistence.exists 
 @cds.persistence.calcview 
 Entity PO_PI {
