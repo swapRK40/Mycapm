@@ -101,7 +101,7 @@ context transaction  {
 
     }
 }
-
+//CV
 @cds.persistence.exists 
 @cds.persistence.calcview 
 Entity BP_AD {
