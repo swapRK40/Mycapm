@@ -101,7 +101,7 @@ context transaction  {
 
     }
 }
-
+//These calculation views notations we are telling capm to do not manage ddl operation for these beacuse these are already present in db 
 @cds.persistence.exists 
 @cds.persistence.calcview 
 Entity BP_AD {
