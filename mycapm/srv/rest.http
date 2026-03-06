@@ -180,3 +180,20 @@ Authorization: Basic saurabh:Welcome
 
 GET http://localhost:4004/odata/v4/catalog/Employees HTTP/1.1
 Authorization: Basic asthana:Welcome1
+
+
+###
+
+//------------Practice endpoints-------------//
+
+GET  http://localhost:4004/odata/v4/practicepoints/readpurcahseorder/2a76cb15-8347-44e8-b3e2-cf2b9db3249f
+
+
+###
+
+PATCH  http://localhost:4004/odata/v4/practicepoints/UpdatePO/4b30a213-6eba-4943-92e5-f8e0f484b
+ Content-Type: application/json
+
+{
+"LIFECYCLE_STATUS" : "Apporve"
+}
