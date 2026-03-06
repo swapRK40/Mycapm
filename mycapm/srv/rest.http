@@ -184,7 +184,7 @@ Authorization: Basic asthana:Welcome1
 
 ###
 
-//------------Practice endpoints-------------//
+//-------------Practice endpoints--------------//
 
 GET  http://localhost:4004/odata/v4/practicepoints/readpurcahseorder/2a76cb15-8347-44e8-b3e2-cf2b9db3249f
 
