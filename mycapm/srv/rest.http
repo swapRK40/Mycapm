@@ -197,3 +197,13 @@ PATCH  http://localhost:4004/odata/v4/practicepoints/UpdatePO/4b30a213-6eba-4943
 {
 "LIFECYCLE_STATUS" : "Apporve"
 }
+
+###
+
+PATCH http://localhost:4004/odata/v4/pofunction/UpdatePo/4c8c190d-934e-4cf8-a9d3-9ea237ec8a8e
+Content-Type: application/json
+
+{
+"LIFECYCLE_STATUS" : "N"
+}
+
