@@ -1,46 +1,54 @@
-using {india.db.transaction, india.db.master ,india.db as my} from '../db/datamodel' ;
+using {
+              india.db.transaction,
+              india.db.master,
+  india.db as my
+} from '../db/datamodel';
 
-service catalogService  @(requires: 'authenticated-user'){
-    //@readonly//we have applied restriction on these service only get call allowed
-    entity Employees
-     @(restrict : [
+service catalogService @(requires: 'authenticated-user') {
+  //@readonly//we have applied restriction on these service only get call allowed
+  entity Employees @(restrict: [
 
-  {
-    grant : ['READ'],
-    to : 'Viewer',
-    where : 'Gender=$user.Gender'
-  },
+    {
+      grant: ['READ'],
+      to   : 'Viewer',
+      where: 'Gender=$user.Gender'
+    },
 
-  {
-    grant : ['READ', 'WRITE'],
-    to : 'Admin',
-  },
+    {
+      grant: [
+        'READ',
+        'WRITE'
+      ],
+      to   : 'Admin',
+    },
 
-] )
-as projection on my.Employees;
+  ]) as projection on my.Employees;
 
 }
 
 
-service Catalogservice @(path: 'CatalogServiceBTP') @(requires: 'authenticated-user'){
-    entity businesspartner as projection on master.businesspartner;
-    //below we have applied restriction on our service
-    annotate Catalogservice.businesspartner with @(Capabilities: {
+service Catalogservice @(path: 'CatalogServiceBTP')@(requires: 'authenticated-user') {
+  entity businesspartner as projection on master.businesspartner;
+
+  //below we have applied restriction on our service
+  annotate Catalogservice.businesspartner with @(Capabilities: {
     InsertRestrictions: {Insertable: false},
     UpdateRestrictions: {Updatable: false},
     DeleteRestrictions: {Deletable: false},
   });
 
-    entity product as projection on master.product;
+  entity product         as projection on master.product;
 
-    entity address as projection on master.address;
-    annotate Catalogservice.address with @(Capabilities: {
+  entity address         as projection on master.address;
+
+  annotate Catalogservice.address with @(Capabilities: {
     InsertRestrictions: {Insertable: true},
     UpdateRestrictions: {Updatable: true},
     DeleteRestrictions: {Deletable: true},
   });
 
-    entity poitems as projection on transaction.poitems;
+  entity poitems         as projection on transaction.poitems;
+
   annotate Catalogservice.poitems with @(Capabilities: {
     InsertRestrictions: {Insertable: true},
     UpdateRestrictions: {Updatable: true},
@@ -48,8 +56,9 @@ service Catalogservice @(path: 'CatalogServiceBTP') @(requires: 'authenticated-u
   });
 
 
-    entity purchaseorder as projection on transaction.purchaseorder;
-    annotate Catalogservice.purchaseorder with @(Capabilities: {
+  entity purchaseorder   as projection on transaction.purchaseorder;
+
+  annotate Catalogservice.purchaseorder with @(Capabilities: {
     InsertRestrictions: {Insertable: true},
     UpdateRestrictions: {Updatable: true},
     DeleteRestrictions: {Deletable: true},
@@ -90,5 +99,5 @@ service increment {
 //These is for Graphical calculation  View
 service CVsrv {
   entity BP_AD as projection on my.BP_AD;
-  entity PO_PI as projection on my.PO_PI; 
+  entity PO_PI as projection on my.PO_PI;
 }
